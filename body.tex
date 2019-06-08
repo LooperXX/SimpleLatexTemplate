@@ -1,0 +1,648 @@
+\part{正文} % 部分标题
+% \chapter{章标题}这一章我们介绍这些内容。
+\section{章节编排} % 节标题
+\subsection{小节标题}这一小节我们介绍这些内容。
+\subsubsection{子节标题}这一子节我们介绍这些内容。
+\paragraph{段标题}这一段我们介绍这些内容。
+\subparagraph{小段标题}这一小段我们介绍这些内容。
+
+此外，在如上命令后添加*，则该部分部分自动编号，且不会编入自动目录中
+
+\section{行文}
+
+\subsection{作者}
+\begin{lstlisting}[language={TeX}]
+    \usepackage{authblk}
+    \title{More than one Author with different Affiliations}
+    \author[a]{Author A}
+    \author[a]{Author B}
+    \author[a]{Author C \thanks{Corresponding author: email@mail.com}}
+    \author[b]{Author D}
+    \author[b]{Author E}
+    \affil[a]{Department of Computer Science, \LaTeX\ University}
+    \affil[b]{Department of Mechanical Engineering, \LaTeX\ University}
+    % 使用 \thanks 定义通讯作者
+    \renewcommand*{\Affilfont}{\small\it} % 修改机构名称的字体与大小
+    \renewcommand\Authands{ and } % 去掉 and 前的逗号
+    \date{} % 去掉日期
+\end{lstlisting}
+
+
+\subsection{字体}
+
+%字体族设置（罗马字体、无衬线字体、打印机字体）
+\textrm{Roman Family} \textsf{Sans Serif Family} \texttt{Typewriter Family}    
+
+{\rmfamily Roman Family} {\sffamily Sans Serif Family} {\ttfamily Typewriter Family}
+
+{\sffamily who you are? you find self on everyone around. take you as the same as others!}
+
+{\ttfamily Are you wiser than others? definitely on. in some days, my it is true. What can you achieve? a luxurious house? a brillilant car? an admirable career? who knows?}
+
+%字体系列设置（粗细、宽度）
+\textmd{Medium Series} \textbf{Boldface Series}
+
+{\mdseries Medium Series} {\bfseries Boldface Series}
+
+%字体形状（直立、斜体、伪斜体、小型大写）
+\textup{Upright Shape} \textit{Italic Shape} \textsl{Slanted Shape} \textsc{Small Caps Shape}
+
+{\upshape Upright Shape} {\itshape Italic Shape} {\slshape Slanted Shape} {\scshape Small Caps Shape}
+
+%中文字体
+{\songti 宋体} \quad {\heiti 黑体} \quad {\fangsong 仿宋} \quad {\kaishu 楷书}
+
+中文字体的 \textbf{粗体} 和 \textit{斜体} 。
+
+
+%字体大小,根据normalsize的大小确定，normalsize 在文档类的参数决定
+{\tiny           Hello}\\
+{\scriptsize     Hello}\\
+{\footnotesize   Hello}\\
+{\small          Hello}\\
+{\normalsize      Hello}\\
+{\large          Hello}\\
+{\Large          Hello}\\
+{\LARGE          Hello}\\
+{\huge           Hello}\\
+{\Huge           Hello}\\
+
+%中文字号设置命令、
+\zihao{-0} 你好！
+\zihao{5} 你好！
+
+\subsection{目录}
+\begin{lstlisting}[language={tex}]
+    \phantomsection % 生成新增目录项的链接
+    \addcontentsline{toc}{section}{摘要} % 以section的名义向目录中添加条目
+\end{lstlisting}
+
+\subsubsection{编号设置}
+修改编号的形式
+\begin{lstlisting}[language={TeX}]
+    \renewcommand\thesection{\arabic{section}} 
+    % arabic 阿拉伯数字 
+    % roman 小写的罗马数字 
+    % Roman 大写的罗马数字 
+    % alph 小写字母 
+    % Alph 大写字母
+    
+    同样的，也可以修改子目录的编号方式，而且各目录编号方式可以不同
+    \renewcommand\thesection{\Alph{section}} 
+    \renewcommand\thesection{\arabic{subsection}}
+\end{lstlisting}
+其实，Latex内部有23个计数器，17个为序号计数器，6个是控制计数器，选列如下，因此我们可以根据需要改变计数器计数形式。
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    计数器名          & 用途         \\ \hline
+    part          & 部序号        \\ \hline
+    chapter       & 章序号        \\ \hline
+    section       & 节          \\ \hline
+    subsection    & 小节         \\ \hline
+    subsubsection & 小小节        \\ \hline
+    paragraph     & 段          \\ \hline
+    subparagraph  & 小段         \\ \hline
+    figure        & 插图序号       \\ \hline
+    table         & 表格序号       \\ \hline
+    equation      & 公式序号       \\ \hline
+    page          & 页码计数器      \\ \hline
+    footnote      & 脚注序号       \\ \hline
+    mpfootnote    & 小页环境中脚注计数器 \\ \hline
+    \end{tabular}
+    \caption{计数器}
+    \label{tab:mytab0}
+\end{table}
+
+\subsection{列表}
+
+\paragraph{有序列表}
+\begin{itemize}
+  \item Javascript
+  \item Html
+  \item CSS
+\end{itemize}
+
+\paragraph{无序列表}
+\begin{enumerate}
+  \item Javascript
+  \item Html
+  \item CSS
+\end{enumerate}
+
+\paragraph{描述列表}
+\begin{description}
+  \item[Javascript] Javascript
+  \item[Html] Html
+  \item[CSS] CSS
+\end{description}
+
+\subsection{换行、分段与分页}
+\begin{itemize}
+    \item $\backslash \backslash$ 表示强制换行 与 $\backslash newline$ 类似但有不同
+    \item $\backslash \backslash[offset]$ 表示强制换行并且与下一行的行间距为原来行间距+offset
+    \item $\backslash linebreak$ 强制换行，与$\backslash newline$的区别为其当前行分散对齐。
+    \item $\backslash par$ 表示强制分段
+    \item $\backslash newpage$ 分页命令。
+    \item $\backslash clearpage$ 分页命令
+\end{itemize}
+
+\begin{lstlisting}
+    \newpage：  The \newpage command ends the current page.
+    \clearpage：The \clearpage command ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
+\end{lstlisting}
+
+通俗点讲就是当你新加的一页内容较多时，两者基本一样，当新加的一页内容较少时，$\backslash newpage$就无法实现你想要的效果，但$\backslash clearpage$可以。
+
+
+\subsection{空格}
+$\backslash quad, 1em, em, m$ 代表当前字体下接近字符‘M’的宽度。
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        两个quad空格 & a \qquad b \\
+        \hline
+        一个quad空格 & a \quad b \\
+        \hline
+        大空格	 & a\ b \\
+        \hline
+        中等空格 &	a\;b \\
+        \hline
+        小空格 & a\,b \\
+        \hline
+        没有空格 & ab \\
+        \hline
+        紧贴    &  a\!b  \\
+        \hline
+    \end{tabular}
+    \caption{空格效果}
+    \label{tab:mytab1}
+\end{table}
+
+\subsection{缩进}
+$\backslash noindent$ 可以强制首行不缩进
+
+$\backslash setlength \{\backslash parindent\}\{1em\}$ 自行设置缩进量
+
+\subsection{引用}
+在bib文件中写入数据，并以$\backslash cite{}$引用，在文档最后呈现所有参考文献。
+
+引用共三种 $cite,url/href,ref$ 分别是
+\begin{itemize}
+    \item 对bib中的引用 \cite{W:liam} \cite{W:jingwhale}
+    \item 对网址的直接引用 \url{www.baidu.com} / \href{www.baidu.com}{百度}
+    \item 对label的引用 如图\ref{fig:myfig1}
+\end{itemize}
+
+此外，可以使用$\backslash footnote \{脚注内容\}$添加脚注，脚注标号设置如下
+\begin{lstlisting}[language={TeX}]
+    % 符号/字母 脚注标号设置
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}} % 重置\footnote{}命令为符号脚注
+    \renewcommand{\thefootnote}{\alph{footnote}} % 重置\footnote{}命令为符号脚注
+    
+    % arabic 阿拉伯数字 
+    % roman 小写的罗马数字 
+    % Roman 大写的罗马数字 
+    % alph 小写字母 
+    % Alph 大写字母
+    
+    % 数字脚注标号设置，且标号可以略去
+    \usepackage{lipsum}
+    \newcommand\blfootnote[1]{% 
+    \begingroup 
+    \renewcommand\thefootnote{}\footnote{#1}% 
+    \addtocounter{footnote}{-1}% 
+    \endgroup 
+    }
+    
+    \blfootnote{*Corresponding Author} % 无标号
+    \footnote{Corresponding Author} % 正常显示标号，从1开始
+\end{lstlisting}
+
+
+\subsection{代码}
+使用listings与xcolor实现代码段的插入，以下是配置示例
+\begin{lstlisting}[language={TeX}]
+\usepackage{listings} % 代码段
+\usepackage{xcolor} % 颜色
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\ttfamily,            % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\ttfamily\color{mygreen},    
+                                   % comment style
+  deletekeywords={},               % if you want to delete keywords from the given language
+  escapeinside={},                 % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C++,                    % the language of the code
+  morekeywords={},                 % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+\end{lstlisting}
+
+\subsection{算法}
+
+\section{数学公式}
+
+LaTeX 的数学模式有两种：行内模式 (inline) 和行间模式 (display)。前者在正文的行文中，插入数学公式；后者独立排列单独成行，并自动居中。
+
+在行文中，使用 $ X^2 $ 可以插入行内公式，使用 \[ X^2 \] 可以插入行间公式，如果需要对行间公式进行编号，则可以使用 equation 环境（equation表示不需要编号）：
+
+\begin{equation}
+\sqrt{x}, \frac{1}{2}
+\end{equation}
+
+\subsection{运算符} 
+
+一些小的运算符，可以在数学模式下直接输入；另一些需要用控制序列生成，如
+\[ \pm\; \times \; \div\; \cdot\; \cap\; \cup\;
+\geq\; \leq\; \neq\; \approx \; \equiv \]
+
+连加、连乘、极限、积分等大型运算符 % \sum, \prod, \lim, \int
+他们的上下标在行内公式中被压缩，以适应行高。我们可以强制显式地指定是否压缩这些上下标。例如：
+
+$ \sum_{i=1}^n i\quad \prod_{i=1}^n $ 
+
+$ \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
+
+\[ \lim_{x\to0}x^2 \quad \int_a^b x^2 dx \]
+\[ \lim\nolimits _{x\to0}x^2\quad \int\nolimits_a^b x^2 dx \]
+
+多重积分
+\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
+
+\subsection{定界符}
+
+\[ \Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) \]
+\[ \Biggl[\biggl[\Bigl[\bigl[[x]\bigr]\Bigr]\biggr]\Biggr] \]
+\[ \Biggl \{\biggl \{\Bigl \{\bigl \{\{x\}\bigr \}\Bigr \}\biggr \}\Biggr\} \]
+\[ \Biggl\langle\biggl\langle\Bigl\langle\bigl\langle\langle x
+\rangle\bigr\rangle\Bigr\rangle\biggr\rangle\Biggr\rangle \]
+\[ \Biggl\lvert\biggl\lvert\Bigl\lvert\bigl\lvert\lvert x
+\rvert\bigr\rvert\Bigr\rvert\biggr\rvert\Biggr\rvert \]
+\[ \Biggl\lVert\biggl\lVert\Bigl\lVert\bigl\lVert\lVert x
+\rVert\bigr\rVert\Bigr\rVert\biggr\rVert\Biggr\rVert \]
+
+\subsection{省略号}
+\[ x_1,x_2,\dots ,x_n\quad 1,2,\cdots ,n\quad
+\vdots\quad \ddots \]
+
+\subsection{矩阵}
+\[ \begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+\begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+\begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+\begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+\begin{Vmatrix} a&b\\c&d \end{Vmatrix} \]
+
+行内的小矩阵：Marry has a little matrix $ ( \begin{smallmatrix} a&b\\c&d \end{smallmatrix} ) $.
+
+\subsection{多行公式}
+
+\subsubsection{长公式}
+不对齐
+\begin{multline}
+x = a+b+c+{} \\
+d+e+f+g
+\end{multline}
+对齐
+\[\begin{aligned}
+x ={}& a+b+c+{} \\
+&d+e+f+g
+\end{aligned}\]
+
+\subsubsection{公式组}
+\begin{gather}
+a = b+c+d \\
+x = y+z
+\end{gather}
+\begin{align}
+a &= b+c+d \\
+x &= y+z
+\end{align}
+
+\subsubsection{分段公式}
+\begin{equation}
+    y= \begin{cases}
+    -x,\quad x\leq 0 \\
+    x,\quad x>0
+    \end{cases} 
+\end{equation}
+
+\subsubsection{复杂公式}
+\begin{equation}
+\left.
+\begin{aligned}
+x+y &> 5 \\
+y-y &> 11
+\end{aligned}
+\ \right\}\Rightarrow x^2 - y^2 > 55
+\end{equation}
+
+
+\section{图表}
+$\backslash centerline{}$ 以及 $\backslash centering$可以居中图表
+
+\subsection{插入图片}
+如图\ref{fig:myfig1}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = .8\textwidth]{figure/Latex.jpg}
+\caption{图片标题}
+\label{fig:myfig1}
+\end{figure}
+
+\subsection{插入表格}
+如表\ref{tab:mytab2}，tabular环境提供了最简单的表格功能。它用 $\backslash hline$ 命令表示横线，在列格式中用 | 表示竖线；用 $\&$ 来分列，用 $\backslash\backslash$换行 
+
+Latex的表格编写实在是太繁琐了，推荐使用 \textbf{\href{http://www.tablesgenerator.com/}{Tables Generator}} 轻松愉悦的完成表格 :>
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|r|}
+         \hline
+        操作系统& 发行版& 编辑器\\
+         \hline
+        Windows & MikTeX & TexMakerX \\
+         \hline
+        Unix/Linux & teTeX & Kile \\
+         \hline
+        Mac OS & MacTeX & TeXShop \\
+         \hline
+        通用& TeX Live & TeXworks \\
+         \hline
+    \end{tabular}
+    \caption{表格标题}
+    \label{tab:mytab2}
+\end{table}
+
+\subsubsection{跨列表格}
+如表\ref{tab:mytab3}
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|r|}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      左列 & 中列 & 右列 \\
+      \hline
+      2行1列 & 2行2列 & 2行3列 \\
+      \hline
+      \multicolumn{2}{|c|}{跨越2015} & 3行3列 \\
+      \hline
+      4行1列 & 4行2列 & 4行3列 \\
+      \hline
+    \end{tabular}
+    \caption{跨列表格}
+    \label{tab:mytab3}
+\end{table}
+
+\subsection{浮动效果}
+ htbp 选项用来指定插图的理想位置，这几个字母分别代表 here, top, bottom, float page，也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）。$\backslash centering$ 用来使插图居中；$\backslash caption$ 命令设置插图标题，LaTeX 会自动给浮动体的标题加上编号。注意 $\backslash label$ 应该放在标题命令之后。
+
+\subsection{图表混合}
+\subsubsection{一行多图}
+在导言区引入以下包，使用subfigure即可实现一行多图等效果，并且图片的标题与label都可以相应设置。子图的标题中的字母可以通过设置修改
+\begin{lstlisting}[language={TeX}]
+    \usepackage{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+\end{lstlisting}
+$\backslash quad$分开两张图片，$\backslash quad$之后再加上回车，则分行
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.2\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{一行多图}
+        \label{fig:myfig2}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.2\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{一行多图}
+        \label{fig:myfig3}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.2\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{一行多图}
+        \label{fig:myfig4}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.2\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{一行多图}
+        \label{fig:myfig5}
+    \end{subfigure}
+    \caption{一行多图}
+    \label{fig:myfig6}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{多行多图}
+        \label{fig:myfig7}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{多行多图}
+        \label{fig:myfig8}
+    \end{subfigure}
+    \quad
+    
+    \begin{subfigure}[t]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{多行多图}
+        \label{fig:myfig9}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[t]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{多行多图}
+        \label{fig:myfig10}
+    \end{subfigure}
+    \caption{多行多图}
+    \label{fig:myfig11}
+\end{figure}
+
+\subsubsection{一行多表}
+一行多表以及图表混合均使用minipage的方式实现，标题与label均独立，可以在\href{http://www.sascha-frank.com/latex-minipage.html}{这里}查看其文档
+
+\begin{lstlisting}[language={TeX}]
+    \begin{minipage}[adjusting]{width of the minipage}
+     Text ... \ \
+     Images ... \ \
+     Tables ... \ \
+    \end{minipage} 
+\end{lstlisting}
+
+\begin{table}[htbp]
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \captionof{table}{一行多表}
+    \begin{tabular}{|l|c|r|}
+         \hline
+        操作系统& 发行版& 编辑器\\
+         \hline
+        Windows & MikTeX & TexMakerX \\
+         \hline
+        Unix/Linux & teTeX & Kile \\
+         \hline
+        Mac OS & MacTeX & TeXShop \\
+         \hline
+        通用& TeX Live & TeXworks \\
+         \hline
+    \end{tabular}
+    \label{tab:mytab4}
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \captionof{table}{一行多表}
+        \begin{tabular}{|l|c|r|}
+             \hline
+            操作系统& 发行版& 编辑器\\
+             \hline
+            Windows & MikTeX & TexMakerX \\
+             \hline
+            Unix/Linux & teTeX & Kile \\
+             \hline
+            Mac OS & MacTeX & TeXShop \\
+             \hline
+            通用& TeX Live & TeXworks \\
+             \hline
+        \end{tabular}
+    \label{tab:mytab5}
+  \end{minipage}
+\end{table}
+
+\subsubsection{图表混合}
+
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}[c]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figure/Latex.jpg}
+        \caption{图表混合}
+        \label{fig:myfig12}
+    \end{minipage}
+    \quad
+    \begin{minipage}[c]{0.4\linewidth}
+        \centering
+        \begin{tabular}{|l|c|r|}
+             \hline
+            操作系统& 发行版& 编辑器\\
+             \hline
+            Windows & MikTeX & TexMakerX \\
+             \hline
+            Unix/Linux & teTeX & Kile \\
+             \hline
+            Mac OS & MacTeX & TeXShop \\
+             \hline
+            通用& TeX Live & TeXworks \\
+             \hline
+        \end{tabular}
+        \captionof{table}{图表混合}
+        \label{tab:mytab6}
+    \end{minipage}
+\end{figure}
+
+\section{版面设置}
+
+\subsection{段落对齐}
+
+\begin{center}
+对于生成复杂表格和数学公式，这一点表现得尤为突出。
+\end{center}
+\begin{flushleft}
+LATEX（英语发音：/ˈleɪtɛk/ ），
+\end{flushleft}
+\begin{flushright}
+是一种基于TEX的排版系统，
+\end{flushright}
+
+\subsection{页面边距}
+
+设置页边距，推荐使用 geometry 宏包。可以在\textbf{\href{http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf}{这里}}查看它的说明文档。
+
+例如将纸张的长度设置为 20cm、宽度设置为 15cm、左边距 1cm、右边距 2cm、上边距 3cm、下边距 4cm，后两行可以定制特定页的边距：
+\begin{lstlisting}[language={TeX}]
+    \usepackage{geometry}
+    \geometry{papersize={20cm,15cm}}
+    \geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
+    \newgeometry{left = 0.8 cm, right = 0.8 cm, bottom = 0.8cm} % 单独设置从此行向下的页边距
+    \restoregeometry % 还原页边距
+\end{lstlisting}
+
+\subsection{页眉页脚}
+设置页眉页脚，推荐使用 fancyhdr 宏包。可以在\textbf{\href{http://texdoc.net/texmf-dist/doc/latex/fancyhdr/fancyhdr.pdf}{这里}}查看它的说明文档。
+
+自定义页眉和页脚。
+为页眉和页脚加上装饰性的横线。
+页眉和页脚的宽度可以超过正文文本的宽度。
+多行的页眉和页脚。
+奇偶页使用不同格式的页眉和页脚。
+每章的首页使用不同格式的页眉和页脚。
+浮动对象页使用不同格式的页眉和页脚。
+控制页眉和页脚的字体，包括字形，字族，大小写等。
+
+比如我希望，在页眉左边写上我的名字，中间写上今天的日期，右边写上我的电话；页脚的正中写上页码；页眉和正文之间有一道宽为 0.4pt 的横线分割，可以在导言区加上如下几行：
+
+\begin{lstlisting}[language={TeX}]
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \lhead{\author}
+    \chead{\date}
+    \rhead{}
+    \lfoot{}
+    \cfoot{\thepage}
+    \rfoot{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\headwidth}{\textwidth}
+    \renewcommand{\footrulewidth}{0pt}
+    
+    \pagenumbering{数字形式} % arabic, 阿拉伯数字 roman, 小写罗马数字 Roman,大写罗马数字 alpha, 小写拉丁字母 Alpha, 大写拉丁字母
+\end{lstlisting}
+
+\subsection{行间距}
+我们可以通过 setspace 宏包提供的命令来调整行间距。比如在导言区添加如下内容，可以将行距设置为字号的 1.5 倍：
+\begin{lstlisting}[language={TeX}]
+    \usepackage{setspace}
+    \onehalfspacing
+\end{lstlisting}
+
+\subsection{段间距}
+我们可以通过修改长度 $\backslash parskip$ 的值来调整段间距。例如在导言区添加以下内容
+
+\begin{lstlisting}[language={TeX}]
+    \addtolength{\parskip}{.4em}
+\end{lstlisting}
+
+则可以在原有的基础上，增加段间距0.4em。如果需要减小段间距，只需将该数值改为负值即可。
+
+\bibliographystyle{plain} % 指定参考文献的呈现方式
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{参考文献} %向目录中添加条目，以章的名义
+\bibliography{ref} % 命令用于指定之前生成的.bib库。

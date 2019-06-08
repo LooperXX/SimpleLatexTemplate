@@ -1,0 +1,93 @@
+\documentclass[UTF8]{ctexart}
+
+% 首页内容设置
+\title{一份简洁易用的\LaTeX{}示例}
+\author{Looper\footnote{我的个人博客 : \url{https://looperxx.github.io/}} \footnote{我的Github主页 : \url{https://github.com/looperxx}} \\ \normalsize \href{mailto:LoopeXX@outlook.com}{LoopeXX@outlook.com}}
+\date{\today}
+
+% 导入所需包
+\usepackage{graphicx} 
+\usepackage{listings} % 代码段
+\usepackage{xcolor} % 颜色
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+%% 代码段设置
+\lstset{
+    % backgroundcolor=\color{red!50!green!50!blue!50}, %代码块背景色为浅灰色
+    rulesepcolor= \color{gray}, %代码块边框颜色
+    breaklines=true,  %代码过长则换行
+    numbers=left, %行号在左侧显示
+    numberstyle= \small, %行号字体
+    keywordstyle= \color{darkblue}, %关键字颜色
+    commentstyle=\color{darkgreen}, %注释颜色
+    frame=shadowbox %用方框框住代码块
+}
+
+
+\usepackage{amsmath} % 公式
+\usepackage{hyperref} % 文章目录有链接，点击时会自动跳转到该章节。而且也会使得生成的pdf 文件带有目录书签。
+\usepackage{cite} % 引用
+\usepackage{amsmath} % 数学包
+\usepackage{fancyhdr} % 设置页眉页脚
+\usepackage{lastpage} % 获得总页数
+\usepackage{geometry} % 页边距
+\usepackage{fancyhdr} % 页眉页脚
+%% 页边距设置
+% \geometry{papersize={20cm,15cm}}
+% \geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
+
+%% 伪代码
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+% % % % % % % % % 
+\begin{document}
+
+\maketitle
+\thispagestyle{empty} % 首页不要页码
+
+% \newgeometry{left = 0.8 cm, right = 0.8 cm, bottom = 0.8cm} % 单独设置从此行向下的页边距
+% \restoregeometry % 还原页边距
+
+\begin{abstract}
+
+\LaTeX{}，是一种基于TEX的排版系统，由美国电脑学家莱斯利•兰伯特在20世纪80年代初期开发，利用这种格式，即使用户没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的邮件到完整书籍的所有其他种类的文档。
+
+感谢\textbf{Liam Huang}\cite{W:liam}，\textbf{jingwhale}\cite{W:jingwhale}撰写的博客。
+\end{abstract}
+
+
+\clearpage
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\tableofcontents % 目录
+% \thispagestyle{empty} % 目录页无需页眉 但此时失效 不知为何 所以使用了上方四行 单独设置了目录页的页眉页脚
+
+\newpage
+\setcounter{page}{1} % 从此页开始计算页码
+
+% 设置页眉页脚与排版
+\pagestyle{fancy}
+\lhead{\thepage\ of \pageref{LastPage}}              
+\chead{\date{\today}}                                              
+\rhead{\small\leftmark}                                               
+\lfoot{\LaTeX{}}    
+\cfoot{\thepage}                                                
+\rfoot{\author{Looper}} 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\input{body.tex} % 正文与附录部分
+
+\end{document}

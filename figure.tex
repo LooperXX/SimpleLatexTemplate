@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\newfloat{figtab}{htb}{fgtb}
+\makeatletter
+  \newcommand\figcaption{\def\@captype{figure}\caption}
+  \newcommand\tabcaption{\def\@captype{table}\caption}
+\makeatother
+
+\begin{document}
+\begin{figtab}
+  \begin{minipage}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width = \linewidth]{example-image}
+    \figcaption{Example Image}
+  \end{minipage}\quad
+  \begin{minipage}[b]{0.45\linewidth}
+    \centering
+    \tabcaption{Example Tabular}
+    \begin{tabular}{cc}
+      Hello & world
+    \end{tabular}
+  \end{minipage}
+\end{figtab}
+\end{document}
