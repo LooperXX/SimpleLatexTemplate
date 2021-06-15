@@ -117,19 +117,33 @@
 
 \subsection{列表}
 
-\paragraph{有序列表}
+\paragraph{无序列表}
 \begin{itemize}
   \item Javascript
   \item Html
   \item CSS
 \end{itemize}
 
-\paragraph{无序列表}
+\paragraph{有序列表}
 \begin{enumerate}
   \item Javascript
   \item Html
   \item CSS
 \end{enumerate}
+
+\paragraph{更加紧凑的无序列表}
+\begin{compactitem}
+    \item Javascript
+    \item Html
+    \item CSS
+\end{compactitem}
+
+\paragraph{更加紧凑的有序列表}
+\begin{compactenum}
+    \item Javascript
+    \item Html
+    \item CSS
+\end{compactenum}
 
 \paragraph{描述列表}
 \begin{description}
@@ -137,6 +151,7 @@
   \item[Html] Html
   \item[CSS] CSS
 \end{description}
+
 
 \subsection{换行、分段与分页}
 \begin{itemize}
@@ -197,7 +212,7 @@ $\backslash setlength \{\backslash parindent\}\{1em\}$ 自行设置缩进量
     \item 对label的引用 如图\ref{fig:myfig1}
 \end{itemize}
 
-此外，可以使用$\backslash footnote \{脚注内容\}$添加脚注，脚注标号设置如下
+此外，可以使用$\backslash footnote \{脚注内容\}$添加脚注(标题中添加脚注时需要在在前面多加$\backslash protect$ )，脚注标号设置如下
 \begin{lstlisting}[language={TeX}]
     % 符号/字母 脚注标号设置
     \renewcommand{\thefootnote}{\fnsymbol{footnote}} % 重置\footnote{}命令为符号脚注
