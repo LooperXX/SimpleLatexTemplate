@@ -29,47 +29,55 @@
 
 
 \subsection{字体}
+\paragraph{字体族设置}
+\begin{compactenum}
+    \item 罗马字体 \textrm{Roman Family: who you are? you find self on everyone around}   
+    \item 无衬线字体 \textsf{Sans Serif Family: who you are? you find self on everyone around}
+    \item 打印机字体 \texttt{Typewriter Family: who you are? you find self on everyone around}
+\end{compactenum}
 
-%字体族设置（罗马字体、无衬线字体、打印机字体）
-\textrm{Roman Family} \textsf{Sans Serif Family} \texttt{Typewriter Family}    
+\paragraph{字体系列设置}
+\begin{compactenum}
+    \item 宽度 \textmd{Medium Series} \textbf{Boldface Series}
+    \item 形状（直立、斜体、伪斜体、小型大写） \textup{Upright Shape} \textit{Italic Shape} \textsl{Slanted Shape} \textsc{Small Caps Shape}
+    \item 中文字体 {\songti 宋体} \quad {\heiti 黑体} \quad {\fangsong 仿宋} \quad {\kaishu 楷书} \textbf{粗体} \textit{斜体}
+\end{compactenum}
 
-{\rmfamily Roman Family} {\sffamily Sans Serif Family} {\ttfamily Typewriter Family}
+\paragraph{字体大小,根据normalsize的大小确定，normalsize 在文档类的参数决定}
+\begin{compactenum}
+    \item \tiny{Hello}
+    \item \scriptsize{Hello}
+    \item \footnotesize{Hello}
+    \item \small{Hello}
+    \item \normalsize{Hello}
+    \item \large{Hello}
+    \item \Large{Hello}
+    \item \LARGE{Hello}
+    \item \huge{Hello}
+    \item \Huge{Hello}
+\end{compactenum}
 
-{\sffamily who you are? you find self on everyone around. take you as the same as others!}
+\paragraph{中文字号设置命令}
+\begin{compactenum}
+    \item {\zihao{-0} 你好！}
+    \item {\zihao{5} 你好！}
+\end{compactenum}
 
-{\ttfamily Are you wiser than others? definitely on. in some days, my it is true. What can you achieve? a luxurious house? a brillilant car? an admirable career? who knows?}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/MathAlphabets.png}
+    \caption{Math Alphabets}
+\end{figure}
 
-%字体系列设置（粗细、宽度）
-\textmd{Medium Series} \textbf{Boldface Series}
-
-{\mdseries Medium Series} {\bfseries Boldface Series}
-
-%字体形状（直立、斜体、伪斜体、小型大写）
-\textup{Upright Shape} \textit{Italic Shape} \textsl{Slanted Shape} \textsc{Small Caps Shape}
-
-{\upshape Upright Shape} {\itshape Italic Shape} {\slshape Slanted Shape} {\scshape Small Caps Shape}
-
-%中文字体
-{\songti 宋体} \quad {\heiti 黑体} \quad {\fangsong 仿宋} \quad {\kaishu 楷书}
-
-中文字体的 \textbf{粗体} 和 \textit{斜体} 。
-
-
-%字体大小,根据normalsize的大小确定，normalsize 在文档类的参数决定
-{\tiny           Hello}\\
-{\scriptsize     Hello}\\
-{\footnotesize   Hello}\\
-{\small          Hello}\\
-{\normalsize      Hello}\\
-{\large          Hello}\\
-{\Large          Hello}\\
-{\LARGE          Hello}\\
-{\huge           Hello}\\
-{\Huge           Hello}\\
-
-%中文字号设置命令、
-\zihao{-0} 你好！
-\zihao{5} 你好！
+\paragraph{公式字体}
+\begin{compactenum}
+    \item 粗体：$\boldsymbol x$
+    \item 直立罗马体 : $\mathrm R$
+    \item 直立罗马粗体：$\mathbf x$
+    \item 空心： $\mathbb R$
+    \item 花体：$\mathcal {L,D,N}$
+    \item 花体2（变换）： $\mathscr{L}$
+\end{compactenum}
 
 \subsection{目录}
 \begin{lstlisting}[language={tex}]
@@ -286,6 +294,19 @@ LaTeX 的数学模式有两种：行内模式 (inline) 和行间模式 (display)
 \sqrt{x}, \frac{1}{2}
 \end{equation}
 
+手动序号 $\backslash\text{tag}\{1\}$ 
+
+方框 $\boxed{A} = B$
+
+颜色：$\textcolor[rgb]{0.00,0.50,1.00}{abc}, \color{green}{\frac{1}{2}}$   ${\color{blue}abc}, \color{green}{\frac{1}{2}}$ 
+
+括号
+\begin{equation}
+    \underbrace{a + \overbrace{b+\cdots}^{{}=t}+z}_{\text{total}}~~ 
+    a+{\overbrace{b+\cdots}}^{126}+z
+\end{equation}
+
+
 \subsection{运算符} 
 
 一些小的运算符，可以在数学模式下直接输入；另一些需要用控制序列生成，如
@@ -362,6 +383,10 @@ x &= y+z
     x,\quad x>0
     \end{cases} 
 \end{equation}
+
+\subsubsection{大括号公式}
+
+
 
 \subsubsection{复杂公式}
 \begin{equation}
