@@ -282,7 +282,25 @@ $\backslash setlength \{\backslash parindent\}\{1em\}$ 自行设置缩进量
 }
 \end{lstlisting}
 
-\subsection{算法}
+\subsection{引文}
+引用环境一般有两种，分别是$\backslash quote$和$\backslash quotation$。
+二者的区别是有无首行缩进，前者没有后者有。因此前者一般用在单段文字，而后者用在多段文字。
+
+\begin{quote}
+    Your paper is worthless because you claim that $a^2 + b^2 = 0$ and that $1 + 1 = 3$.
+\end{quote}
+
+\begin{quotation}
+    Your paper is worthless because you claim that $a^2 + b^2 = 0$ and that $1 + 1 = 3$.
+    
+    Your paper is worthless because you claim that $a^2 + b^2 = 0$ and that $1 + 1 = 3$.
+    Your paper is worthless because you claim that $a^2 + b^2 = 0$ and that $1 + 1 = 3$.
+\end{quotation}
+
+此外，$verbatim$环境可以实现代码段引文
+\begin{verbatim}
+    Your paper is worthless because you claim that $a^2 + b^2 = 0$ and that $1 + 1 = 3$.
+\end{verbatim}
 
 \section{数学公式}
 
